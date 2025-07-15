@@ -127,15 +127,3 @@ Prepare a brief report (PDF or Markdown) that includes:
 * [ ] (Optional) Pretrained/best model files if needed for reproduction
 
 **Zip all contents and submit on Canvas.**
-
-## 10. Additional Notes
-
-* You are free to use and modify any code in the provided files.
-* For model architecture, you can use PyTorch predefined models, your own designs, or reimplement published architectures.
-* If using pretrained weights, prefer ImageNet-1k and always use the provided dataset's class labels.
-
-For any questions, please refer to the official assignment description or ask on the course forum.
-
----
-
-如需中英文对照、进一步精简或详细补充某一步，随时告诉我！
