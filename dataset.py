@@ -10,7 +10,7 @@ class CustomDataset(Dataset):
         with open(txt_file, 'r') as f:
             self.data_list = f.readlines()
             
-        # Only keep the first max_samples samples if specified
+        # Only keep the first max_samples samples if specified for quick debugging
         if max_samples is not None:
             self.data_list = self.data_list[:max_samples]
             
