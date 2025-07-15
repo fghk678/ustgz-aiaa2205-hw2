@@ -48,7 +48,7 @@ def predict_no_label_data(
     # Create dataset and loader
     print(f"Loading data: {predict_txt}")
     dataset = CustomDataset(predict_txt, data_dir, transform=test_transform)
-    data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=4)
+    data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=2)
     
     # Create model
     print("Creating model...")
