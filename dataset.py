@@ -3,12 +3,16 @@ from torch.utils.data import Dataset
 from PIL import Image
 
 class CustomDataset(Dataset):
-    def __init__(self, txt_file, data_dir, transform=None):
+    def __init__(self, txt_file, data_dir, transform=None, max_samples=None):
         self.data_dir = data_dir
         self.transform = transform
         
         with open(txt_file, 'r') as f:
             self.data_list = f.readlines()
+            
+        # Only keep the first max_samples samples if specified
+        if max_samples is not None:
+            self.data_list = self.data_list[:max_samples]
             
     def __len__(self):
         return len(self.data_list)
