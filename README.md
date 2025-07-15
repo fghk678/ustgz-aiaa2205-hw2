@@ -1,6 +1,6 @@
-# AIAA2205 HW2 - Image Classification under Domain Adaptation
+# AIAA2205 HW2 - Image Classification with Domain Adaptation
 
-This README provides a step-by-step guide to reproduce our results for the AIAA2205 HW2 assignment: **Image Classification under Domain Adaptation with Vision Transformers**.
+This README provides a step-by-step guide to reproduce our results for the AIAA2205 HW2 assignment: **Image Classification with Domain Adaptation using Pretrained Vision Transformers**.
 
 ## 1. Project Structure
 
