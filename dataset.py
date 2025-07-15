@@ -1,4 +1,5 @@
 import os
+import random
 from torch.utils.data import Dataset
 from PIL import Image
 
@@ -10,8 +11,9 @@ class CustomDataset(Dataset):
         with open(txt_file, 'r') as f:
             self.data_list = f.readlines()
             
-        # Only keep the first max_samples samples if specified for quick debugging
+        # Only keep random max_samples samples if specified for quick debugging
         if max_samples is not None:
+            random.shuffle(self.data_list)
             self.data_list = self.data_list[:max_samples]
             
     def __len__(self):
