@@ -35,8 +35,8 @@ def train_domain_adaptation(
     ])
 
     # Datasets and Loaders
-    src_dataset = CustomDataset(src_txt, src_dir, transform=train_transform)
-    tgt_dataset = CustomDataset(tgt_txt, tgt_dir, transform=test_transform)
+    src_dataset = CustomDataset(src_txt, src_dir, transform=train_transform, max_samples=1000)
+    tgt_dataset = CustomDataset(tgt_txt, tgt_dir, transform=test_transform, max_samples=1000)
     tgt_eval_dataset = CustomDataset(tgt_eval_txt, tgt_dir, transform=test_transform)
     src_loader = DataLoader(src_dataset, batch_size=batch_size, shuffle=True, num_workers=2, drop_last=True)
     tgt_loader = DataLoader(tgt_dataset, batch_size=batch_size, shuffle=True, num_workers=2, drop_last=True)

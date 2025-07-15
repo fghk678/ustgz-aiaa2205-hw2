@@ -31,12 +31,14 @@ import numpy as np
 
 # ==== 1. Custom Dataset (TODO) ====
 class CustomDataset(Dataset):
-    def __init__(self, txt_file, data_dir, transform=None):
+    def __init__(self, txt_file, data_dir, transform=None, max_samples=None):
         self.data_dir = data_dir
         self.transform = transform
         # TODO: Read all lines from txt_file and store in self.data_list
         # Each line: image_filename label
         # Example: self.data_list = ...
+        
+        # TODO: Only keep the first max_samples samples if specified
         pass
 
     def __len__(self):
