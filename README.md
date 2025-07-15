@@ -59,7 +59,7 @@ For more details, refer to `install_conda+pytorch+vscode.md`.
 
 ### 4.0. Making Benchmark Predictions
 
-You can generate a benchmark prediction file using the pretrained baseline model:
+You can generate a benchmark prediction file using the pretrained baseline model (download from [Google Drive](https://drive.google.com/file/d/17gKFTaFUTllnCAEuCVDeHupfi3_VXlCp/view?usp=sharing)):
 
 ```bash
 python predict.py
