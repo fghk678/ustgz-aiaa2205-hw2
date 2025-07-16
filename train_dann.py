@@ -7,7 +7,15 @@ from models.vit import ViT_DANN
 from dataset import CustomDataset
 from utils import set_seed, accuracy
 from tqdm import tqdm
+from argparse import ArgumentParser
 import os
+
+# Set the number of samples to train on for faster training
+parser = ArgumentParser()
+parser.add_argument('--max_samples', type=int, default=1000)
+args = parser.parse_args()
+
+MAX_SAMPLES = args.max_samples
 
 def train_domain_adaptation(
     src_txt, src_dir, tgt_txt, tgt_eval_txt, tgt_dir, num_classes=65, batch_size=32, epochs=20, alpha=0.3
@@ -35,8 +43,8 @@ def train_domain_adaptation(
     ])
 
     # Datasets and Loaders
-    src_dataset = CustomDataset(src_txt, src_dir, transform=train_transform, max_samples=1000)
-    tgt_dataset = CustomDataset(tgt_txt, tgt_dir, transform=test_transform, max_samples=1000)
+    src_dataset = CustomDataset(src_txt, src_dir, transform=train_transform, max_samples=MAX_SAMPLES)
+    tgt_dataset = CustomDataset(tgt_txt, tgt_dir, transform=test_transform, max_samples=MAX_SAMPLES)
     tgt_eval_dataset = CustomDataset(tgt_eval_txt, tgt_dir, transform=test_transform)
     src_loader = DataLoader(src_dataset, batch_size=batch_size, shuffle=True, num_workers=2, drop_last=True)
     tgt_loader = DataLoader(tgt_dataset, batch_size=batch_size, shuffle=True, num_workers=2, drop_last=True)
@@ -192,7 +200,7 @@ def load_model(checkpoint_path, model, optimizer=None, scheduler=None):
 
 if __name__ == '__main__':
     # Modify to your data path
-    SRC_TXT = 'data/image_list/source.txt'
+    SRC_TXT = 'data/image_list/source.txt' 
     SRC_DIR = 'data'
     TGT_TXT = 'data/image_list/target.txt'
     TGT_DIR = 'data'  
